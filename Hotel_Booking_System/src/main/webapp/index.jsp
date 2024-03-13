@@ -8,7 +8,7 @@
         body {
         margin: 0;
         padding: 0;
-        background-image: url("./images/Owall-Hotel-Seoul-Exterior.jpeg");
+        background-image: url("Owall-Hotel-Seoul-Exterior.jpeg");
         background-repeat:no-repeat;
         background-position: inherit;
         /* background-size: cover; */
@@ -60,11 +60,13 @@
         <h1>Welcome To Hotel Booking Page......!!!</h1>
         <center>
         <br><br>
-        <a href="./admin/Login.jsp"><button id="btn" class="button btn btn-outline-dark">ADMIN</button></a>
+        <a href="http://localhost:8081/Hotel_Booking_System/admin/Login.jsp"><button id="btn" class="button btn btn-outline-dark">
+        ADMIN</button></a>
         
         <br><br>
         
-        <a href="./user/Login.jsp"><button id="btn" class="button btn btn-outline-dark">USER</button></a>
+        <a href="./user/Login.jsp"><button id="btn" class="button btn btn-outline-dark">
+        USER</button></a>
     	</center>
     </div>
 </body>

@@ -8,7 +8,7 @@
       body{
         margin: 0;
         padding: 0;
-        background-image: url("../images/Owall-Hotel-Seoul-Exterior.jpeg");
+        background-image: url("Owall-Hotel-Seoul-Exterior.jpeg");
         background-repeat:no-repeat;
         background-position: inherit;
         /* background-size: cover; */
@@ -48,11 +48,11 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link " href=".././index.jsp">Home</a>
+                  <a class="nav-link " href="http://localhost:8081/Hotel_Booking_System/index.jsp">Home</a>
                 </li>
           
                 <li class="nav-item">
-                  <a class="nav-link " href="Login.jsp">Login</a>
+                  <a class="nav-link " href="http://localhost:8081/Hotel_Booking_System/admin/Login.jsp">Login</a>
                 </li>
               </ul>
             </div>
@@ -67,22 +67,40 @@
             <div class="row justify-content-left">
               <div class="col-md-8">
                   <h2 class="mb-4 " >Login Form</h2>
-                  <form action="donate"  method="post">
+                  <form action="http://localhost:8081/Hotel_Booking_System/AdminLogin"  method="post">
                       <div class="row mb-3">
                           <div class="col">
                               <label for="email" class="form-label">Email :</label>
-                              <input type="email" class="form-control"  placeholder="Email"  required >
+                              <input type="email" class="form-control"  placeholder="Email"  required 
+                              name="email">
                           </div>
                           <div class="col">
                             <label for="password" class="form-label">Password :</label>
-                            <input type="text" class="form-control"  required placeholder="Password" >
+                            <input type="password" class="form-control"  required placeholder="Password" 
+                            name="password">
                         </div>
                       </div>
                       <!-- <button type="submit" class="btn btn-outline-dark">Create Account</button> -->
-                      <a href="HotelPage.html" id="btn" class="button btn btn-outline-dark">Sign In</a>
+                      <input type="submit" class="button btn btn-outline-dark" value="Sign In">
                   </form>
               </div>        
             </div>
         </div>
+        <div class="container  w-50 p-3 m-5">
+        	<%
+        		String msg = (String) request.getAttribute("message");
+        		if(msg != null){
+        	%>
+        	<h1 style="color:red;"><%= msg%></h1>
+        	<%
+        		}
+        	%>
+        </div>
 </body>
 </html>
+
+
+
+
+
+

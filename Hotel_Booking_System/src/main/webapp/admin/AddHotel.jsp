@@ -8,7 +8,7 @@
         body {
         margin: 0;
         padding: 0;
-        background-image: url("../images/Owall-Hotel-Seoul-Exterior.jpeg");
+        background-image: url("Owall-Hotel-Seoul-Exterior.jpeg");
         background-repeat:no-repeat;
         background-position: inherit;
         /* background-size: cover; */
@@ -48,15 +48,15 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link " href="Home.jsp">Home</a>
+                  <a class="nav-link " href="http://localhost:8081/Hotel_Booking_System/admin/Home.jsp">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Hotels
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="AddHotel.html">Add Hotel</a></li>
-                      <li><a class="dropdown-item" href="HotelList.html">Hotel List</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/AddHotel.jsp">Add Hotel</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/HotelList.jsp">Hotel List</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -92,31 +92,41 @@
         <div class="row justify-content-left">
           <div class="col-md-8">
               <h2 class="mb-4 " >Add Hotel</h2>
-              <form action="donate"  method="post">
+              <form action="http://localhost:8081/Hotel_Booking_System/AddHotel"  method="post">
                   <div class="row mb-3">
                       <div class="col">
                           <label for="hotelname" class="form-label">Hotel Name :</label>
-                          <input type="text" class="form-control"  placeholder="Hotel Name" required >
+                          <input type="text" class="form-control"  placeholder="Hotel Name" required 
+                          name="hotelName">
                       </div>
                       <div class="col">
                           <label for="contact" class="form-label">Contact Number :</label>
-                          <input type="text" class="form-control" placeholder="Contact Number "  required >
+                          <input type="text" class="form-control" placeholder="Contact Number "  required 
+                          name="contactNumber">
                       </div>
                   </div>
                   <div class="row mb-3">
                       <div class="col">
                           <label for="price" class="form-label">Price :</label>
-                          <input type="number" class="form-control"  placeholder="Enter Price"  required >
+                          <input type="number" class="form-control"  placeholder="Enter Price"  required 
+                          name="price">
                       </div>
                       <div class="col">
                         <label for="city" class="form-label">City :</label>
-                        <input type="text" class="form-control" placeholder="Enter City"  required >
+                        <input type="text" class="form-control" placeholder="Enter City"  required 
+                        name="city">
                     </div>	
                   </div>
                   <div class="row mb-3">
                       <div class="col">
                           <label for="address" class="form-label">Address :</label>
-                          <input type="text" class="form-control"  placeholder="Enter Address"  required >
+                          <input type="text" class="form-control"  placeholder="Enter Address"  required 
+                          name="address">
+                      </div>
+                       <div class="col">
+                          <label for="rooms" class="form-label">Address :</label>
+                          <input type="text" class="form-control"  placeholder="Enter No. of Rooms"  required 
+                          name="rooms">
                       </div>
                       <div class="col">
                         <!-- <label for="password" class="form-label">Password :</label> -->
@@ -124,7 +134,7 @@
                     </div>
                   </div>
                   <!-- <button type="submit" class="btn btn-outline-dark">Create Account</button> -->
-                  <a href="#" id="btn" class="button btn btn-outline-dark">Create Account</a>
+                  <input type="submit" class="button btn btn-outline-dark" value="Add Hotel">
               </form>
           </div>        
         </div>

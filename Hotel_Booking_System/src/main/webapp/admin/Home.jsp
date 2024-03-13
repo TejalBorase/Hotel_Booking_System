@@ -8,7 +8,7 @@
         body {
         margin: 0;
         padding: 0;
-        background-image: url("../images/Owall-Hotel-Seoul-Exterior.jpeg");
+        background-image: url("Owall-Hotel-Seoul-Exterior.jpeg");
         background-repeat:no-repeat;
         background-position: inherit;
         /* background-size: cover; */
@@ -43,16 +43,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link " href="Home.jsp">Home</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Hotels
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="AddHotel.jsp">Add Hotel</a></li>
-                      <li><a class="dropdown-item" href="HotelList.jsp">Hotel List</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/AddHotel.jsp">Add Hotel</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/HotelList.jsp">Hotel List</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -84,8 +81,28 @@
         </ul>
     </nav>
     
-    <div>
+    <div style="color:black">
         <h1>Welcome To Hotel Booking Page......!!!</h1>
+        <%
+        	String fullName = (String)request.getAttribute("fullName");
+        %>
+       
+        <%
+        	if(fullName != null){
+        %>
+        	<h1>LOGIN SUCCESSFUL!!!</h1>
+        	 <h1><%= fullName%></h1>
+        <%
+        	}
+        %>
     </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
