@@ -8,7 +8,7 @@
         body {
         margin: 0;
         padding: 0;
-        background-image: url("Owall-Hotel-Seoul-Exterior.jpeg");
+        background-image: url("http://localhost:8081/Hotel_Booking_System/images/Owall-Hotel-Seoul-Exterior.jpeg");
         background-repeat:no-repeat;
         background-position: inherit;
         /* background-size: cover; */
@@ -64,8 +64,8 @@
                       Users
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="AddUsers.html">Add Users</a></li>
-                      <li><a class="dropdown-item" href="UsersList.html">User List</a></li>
+                     <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/AddUser.jsp">Add Users</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/UserList.jsp">User List</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -92,46 +92,45 @@
         <div class="row justify-content-left">
           <div class="col-md-8">
               <h2 class="mb-4 " >Add Hotel</h2>
-              <form action="http://localhost:8081/Hotel_Booking_System/AddHotel"  method="post">
+              <form action="../AddHotel"  method="post">
                   <div class="row mb-3">
                       <div class="col">
                           <label for="hotelname" class="form-label">Hotel Name :</label>
                           <input type="text" class="form-control"  placeholder="Hotel Name" required 
-                          name="hotelName">
+                         	name = "hotelName">
                       </div>
                       <div class="col">
                           <label for="contact" class="form-label">Contact Number :</label>
-                          <input type="text" class="form-control" placeholder="Contact Number "  required 
-                          name="contactNumber">
+                          <input type="number" class="form-control" placeholder="Contact Number "  required 
+                         	name="contact">
                       </div>
                   </div>
                   <div class="row mb-3">
                       <div class="col">
                           <label for="price" class="form-label">Price :</label>
                           <input type="number" class="form-control"  placeholder="Enter Price"  required 
-                          name="price">
+                          	name="price">
                       </div>
                       <div class="col">
                         <label for="city" class="form-label">City :</label>
                         <input type="text" class="form-control" placeholder="Enter City"  required 
-                        name="city">
+                        	name="city">
                     </div>	
                   </div>
                   <div class="row mb-3">
                       <div class="col">
                           <label for="address" class="form-label">Address :</label>
                           <input type="text" class="form-control"  placeholder="Enter Address"  required 
-                          name="address">
+                          	name="address">
                       </div>
-                       <div class="col">
-                          <label for="rooms" class="form-label">Address :</label>
-                          <input type="text" class="form-control"  placeholder="Enter No. of Rooms"  required 
-                          name="rooms">
-                      </div>
+             
                       <div class="col">
-                        <!-- <label for="password" class="form-label">Password :</label> -->
-                        <!-- <input type="text" class="form-control"  required placeholder="Password" > -->
-                    </div>
+                          <label for="rooms" class="form-label">Total No. of Rooms :</label>
+                          <input type="number" class="form-control"  placeholder="Enter Total No. of Rooms"  required 
+                          	name="rooms">
+                      </div>
+                      
+                  
                   </div>
                   <!-- <button type="submit" class="btn btn-outline-dark">Create Account</button> -->
                   <input type="submit" class="button btn btn-outline-dark" value="Add Hotel">

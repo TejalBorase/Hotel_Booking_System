@@ -3,6 +3,7 @@ package org.jsp.entity;
 import java.util.List;
 
 import javax.persistence.Cacheable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,7 @@ public class Hotel {
 	@Column(name = "no_of_booked_room")
 	private int noOfBookedRoom;
 
-	@OneToMany(mappedBy = "hotel")
+	@OneToMany(mappedBy = "hotel", cascade = CascadeType.REMOVE)
 	private List<BookingDetails> bookingDetails;
 
 	public int getId() {

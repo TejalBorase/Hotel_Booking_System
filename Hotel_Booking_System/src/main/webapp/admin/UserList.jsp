@@ -45,15 +45,15 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link " href="Home1.html">Home</a>
+                  <a class="nav-link " href="http://localhost:8081/Hotel_Booking_System/admin/Home.jsp">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Hotels
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="AddHotel.html">Add Hotel</a></li>
-                      <li><a class="dropdown-item" href="HotelList.html">Hotel List</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/AddUser.jsp">Add Hotel</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/UserList.jsp">Hotel List</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -61,8 +61,8 @@
                       Users
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="AddUsers.html">Add Users</a></li>
-                      <li><a class="dropdown-item" href="UsersList.html">User List</a></li>
+                    <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/AddUser.jsp">Add Users</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/UserList.jsp">User List</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

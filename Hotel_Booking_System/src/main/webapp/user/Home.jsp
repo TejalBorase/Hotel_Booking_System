@@ -8,7 +8,7 @@
       body{
         margin: 0;
         padding: 0;
-        background-image: url("/Owall-Hotel-Seoul-Exterior.jpeg");
+        background-image: url("/Hotel_Booking_System/images/Owall-Hotel-Seoul-Exterior.jpeg");
         background-repeat:no-repeat;
         background-position: inherit;
         /* background-size: cover; */
@@ -48,16 +48,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link " href="Home2.html">Home</a>
+                  <a class="nav-link " href="/Hotel_Booking_System/user/Home.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="HotelList1.html">Hotels</a>
+                  <a class="nav-link " href="/Hotel_Booking_System/user/HotelList.jsp">Hotels</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="BookingHistory.html">Booking History</a>
+                  <a class="nav-link " href="/Hotel_Booking_System/user/BookingHistory.jsp">Booking History</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="Payment.html">Payment</a>
+                    <a class="nav-link " href="/Hotel_Booking_System/user/Payment.jsp">Payment</a>
                   </li>
               </ul>
             </div>
@@ -68,8 +68,16 @@
               </ul>
         </nav>
 <!-- Home page -->
+		<%
+        	String message2 = request.getParameter("msg");
+        	if(message2 != null){
+        %>
+        	<center><h2 style='color:limegreen'>Login Successful!!!</h2></center>
+        <%	
+        	}
+        %>
 <div>
-    <h1>Welcome To Hotel Booking Page......!!!</h1>
+   			 <h1>Welcome To Hotel Booking Page......!!!</h1>
 </div>
 </body>
 </html>

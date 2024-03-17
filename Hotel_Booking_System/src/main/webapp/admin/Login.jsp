@@ -8,7 +8,7 @@
       body{
         margin: 0;
         padding: 0;
-        background-image: url("Owall-Hotel-Seoul-Exterior.jpeg");
+        background-image: url("http://localhost:8081/Hotel_Booking_System/images/Owall-Hotel-Seoul-Exterior.jpeg");
         background-repeat:no-repeat;
         background-position: inherit;
         /* background-size: cover; */
@@ -67,7 +67,7 @@
             <div class="row justify-content-left">
               <div class="col-md-8">
                   <h2 class="mb-4 " >Login Form</h2>
-                  <form action="http://localhost:8081/Hotel_Booking_System/AdminLogin"  method="post">
+                  <form action="../AdminLogin"  method="post">
                       <div class="row mb-3">
                           <div class="col">
                               <label for="email" class="form-label">Email :</label>

@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<%@page import="org.jsp.dao.AdminDaoImpl"%>
+<%@page import="org.jsp.dao.AdminDao"%>
+<%@page import="org.jsp.entity.Hotel"%>
+<%@page import="java.util.List"%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +12,7 @@
         body {
         margin: 0;
         padding: 0;
-        background-image: url("../images/Owall-Hotel-Seoul-Exterior.jpeg");
+        background-image: url("http://localhost:8081/Hotel_Booking_System/images/Owall-Hotel-Seoul-Exterior.jpeg");
         background-repeat:no-repeat;
         background-position: inherit;
         /* background-size: cover; */
@@ -45,15 +49,15 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link " href="Home1.html">Home</a>
+                  <a class="nav-link " href="http://localhost:8081/Hotel_Booking_System/admin/Home.jsp">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Hotels
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="AddHotel.html">Add Hotel</a></li>
-                      <li><a class="dropdown-item" href="HotelList.html">Hotel List</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/AddHotel.jsp">Add Hotel</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/HotelList.jsp">Hotel List</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -61,8 +65,8 @@
                       Users
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="AddUsers.html">Add Users</a></li>
-                      <li><a class="dropdown-item" href="UsersList.html">User List</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/AddUser.jsp">Add Users</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/UserList.jsp">User List</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -84,10 +88,26 @@
           </li>
         </ul>
     </nav>
-    
+    <%
+    	String update = request.getParameter("msg");
+    	if(update != null){
+    		if(update.equals("added")){
+    %>
+    		<center><h2 style='color:green;'>Hotel Added Successfully!!!</h2></center>
+    <%
+    	}
+    	else if(update.equals("update")){		
+    %>
+    		<center><h2 style='color:green;'>Hotel Edited Successfully!!!</h2></center>
+    <% 
+    		}
+    	}
+    	AdminDao dao = new AdminDaoImpl();
+    	List<Hotel> hotels = dao.getAllHotelsDetails();
+    	if(hotels != null){
+    %>
     <div class="container">
         <h1>Hotel List</h1>
-        <form action="">
             <table class="table ">
                 <thead>
                   <tr>
@@ -97,27 +117,45 @@
                     <th scope="col">Price</th>
                     <th scope="col">City</th>
                     <th scope="col">Address</th>
+                    <th scope="col">No. Of Rooms</th>
+                    <th scope="col">Booked Rooms</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
+                <%
+                	for(Hotel hotel : hotels){
+                %>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th scope="row"><%= hotel.getId()%></th>
+                    <td><%= hotel.getHotelName()%></td>
+                    <td><%= hotel.getMobile()%></td>
+                    <td><%= hotel.getPrice()%></td>
+                    <td><%= hotel.getCity()%></td>
+                    <td><%= hotel.getAddress()%></td>
+                    <td><%= hotel.getTotalNoOfRoom()%></td>
+                    <td><%= hotel.getNoOfBookedRoom()%></td>
                     <td>
-                         <a href="#" id="btn" class="button btn btn-outline-dark">Update</a>
+                         <a href="/Hotel_Booking_System/admin/EditHotel.jsp?hotelId=<%= hotel.getId()%>" id="btn" class="button btn btn-outline-dark">Update</a>
                          &nbsp; 
-                         <a href="#" id="btn" class="button btn btn-outline-dark">Delete</a> 
+                         <a href="/Hotel_Booking_System/DeleteHotel?hotelId=<%= hotel.getId()%>" id="btn" class="button btn btn-outline-dark">Delete</a> 
                     </td>
                   </tr>
+                 <%
+                	}
+                	
+                 %>
                 </tbody>
               </table>
-        </form>
     </div>
+    <%
+    	}
+    	else{
+    %>
+    	<center><h2 style='color:red'>NO RECORD FOUND.</h2></center>
+    <%
+    	}
+    %>
 
 </body>
 </html>

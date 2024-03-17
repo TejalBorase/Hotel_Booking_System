@@ -8,7 +8,7 @@
         body {
         margin: 0;
         padding: 0;
-        background-image: url("Owall-Hotel-Seoul-Exterior.jpeg");
+        background-image: url("http://localhost:8081/Hotel_Booking_System/images/Owall-Hotel-Seoul-Exterior.jpeg");
         background-repeat:no-repeat;
         background-position: inherit;
         /* background-size: cover; */
@@ -57,8 +57,8 @@
                       Users
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="AddUser.jsp">Add Users</a></li>
-                      <li><a class="dropdown-item" href="UsersList.jsp">User List</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/AddUser.jsp">Add Users</a></li>
+                      <li><a class="dropdown-item" href="http://localhost:8081/Hotel_Booking_System/admin/UserList.jsp">User List</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

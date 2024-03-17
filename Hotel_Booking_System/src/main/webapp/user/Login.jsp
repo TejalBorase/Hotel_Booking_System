@@ -8,7 +8,7 @@
       body{
         margin: 0;
         padding: 0;
-        background-image: url("../images/Owall-Hotel-Seoul-Exterior.jpeg");
+        background-image: url("/Hotel_Booking_System/images/Owall-Hotel-Seoul-Exterior.jpeg");
         background-repeat:no-repeat;
         background-position: inherit;
         /* background-size: cover; */
@@ -48,13 +48,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link " href=".././index.jsp">Home</a>
+                  <a class="nav-link " href="http://localhost:8081/Hotel_Booking_System/index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="SignUp.jsp">SignUp</a>
+                  <a class="nav-link " href="http://localhost:8081/Hotel_Booking_System/user/SignUp.jsp">SignUp</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="Login.jsp">Login</a>
+                  <a class="nav-link " href="http://localhost:8081/Hotel_Booking_System/user/Login.jsp">Login</a>
                 </li>
               </ul>
             </div>
@@ -64,27 +64,49 @@
               </li>
             </ul>
         </nav>
+        <%
+        	String message = request.getParameter("msg");
+        	if(message != null){
+        		if(message.equals("added")){
+        %>
+        	<center><h2 style="color:limegreen">Registration Successful!!!</h2>
+        			<h2 style='color:green'>Kindly Login to get Access of an Application.</h2>
+        	</center>
+        <%
+        		}else if(message.equals("login")){
+        %>
+        	<center>
+        		<h2 style='color:red'>PLEASE ENTER VALID CREDENTIALS.</h2>
+        	</center>
+        <%
+       		 	}
+        	}
+        %>
+        	
 <!-- Login Page -->
         <div class="container  w-50 p-3 m-5">
             <div class="row justify-content-left">
               <div class="col-md-8">
-                  <h2 class="mb-4 " >Login Form</h2>
-                  <form action="donate"  method="post">
+                  <h2 class="mb-4 " > Customer Login Form</h2>
+                  <form action="../login"  method="post">
                       <div class="row mb-3">
                           <div class="col">
                               <label for="email" class="form-label">Email :</label>
-                              <input type="email" class="form-control"  placeholder="Email"  required >
+                              <input type="email" class="form-control"  placeholder="Email"  required 
+                              name="email">
                           </div>
                           <div class="col">
                             <label for="password" class="form-label">Password :</label>
-                            <input type="text" class="form-control"  required placeholder="Password" >
+                            <input type="password" class="form-control"  required placeholder="Password" 
+                            name="password">
                         </div>
                       </div>
                       <!-- <button type="submit" class="btn btn-outline-dark">Create Account</button> -->
-                      <a href="HotelPage.html" id="btn" class="button btn btn-outline-dark">Sign In</a>
+                      <input  type="submit" id="btn" class="button btn btn-outline-dark" value="Login">
                   </form>
               </div>        
             </div>
         </div>
+       
 </body>
 </html>

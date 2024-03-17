@@ -8,7 +8,7 @@
       body{
         margin: 0;
         padding: 0;
-        background-image: url("../images/Owall-Hotel-Seoul-Exterior.jpeg");
+        background-image: url("/Hotel_Booking_System/images/Owall-Hotel-Seoul-Exterior.jpeg");
         background-repeat:no-repeat;
         background-position: inherit;
         /* background-size: cover; */
@@ -48,13 +48,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link " href=".././index.jsp">Home</a>
+                  <a class="nav-link " href="http://localhost:8081/Hotel_Booking_System/index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="SignUp.jsp">SignUp</a>
+                  <a class="nav-link " href="http://localhost:8081/Hotel_Booking_System/user/SignUp.jsp">SignUp</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="Login.jsp">Login</a>
+                  <a class="nav-link " href="http://localhost:8081/Hotel_Booking_System/user/Login.jsp">Login</a>
                 </li>
               </ul>
             </div>
@@ -68,50 +68,52 @@
         <div class="container  w-50 p-3 m-5">
             <div class="row justify-content-left">
               <div class="col-md-8">
-                  <h2 class="mb-4 " >User Registraion Form</h2>
-                  <form action="donate"  method="post">
+                  <h2 class="mb-4 " >Customer Registration Form</h2>
+                  <form action="../register"  method="post">
                       <div class="row mb-3">
                           <div class="col">
                               <label for="firstname" class="form-label">First Name :</label>
-                              <input type="text" class="form-control"  placeholder="First Name" required >
+                              <input type="text" class="form-control"  placeholder="First Name" 
+                              required  name="firstName">
                           </div>
                           <div class="col">
                               <label for="lastname" class="form-label">Last Name:</label>
-                              <input type="text" class="form-control" placeholder="Last Name "  required >
+                              <input type="text" class="form-control" placeholder="Last Name "  
+                              required name="lastName">
                           </div>
                       </div>
                       <div class="row mb-3">
                           <div class="col">
-                              <label for="dob" class="form-label">Date Of Birth :</label>
-                              <input type="number" class="form-control"  placeholder="Date Of Birth"  required >
-                          </div>
-                          <div class="col">
                             <label for="gender" class="form-label">Gender :</label>
-                            <input type="text" class="form-control" placeholder="Gender"  required >
+                            <br>
+                            <input type="radio"  class="form-check-input" required name="gender" value="male"> 
+                            <label class="form-label">Male</label>
+                            <input type="radio" class="form-check-input" required name="gender" value="female"> 
+                            <label class="form-label">Female</label>
+                            <input type="radio" class="form-check-input" required name="gender" value="other"> 
+                            <label class="form-label">Other</label>
+                        </div>
+                        <div class="col">
+                            <label for="contact" class="form-label">Mobile Number :</label>
+                            <input type="number" class="form-control"  placeholder="Mobile Number" required 
+                            name="contact">
                         </div>	
                       </div>
                       <div class="row mb-3">
                           <div class="col">
                               <label for="email" class="form-label">Email :</label>
-                              <input type="email" class="form-control"  placeholder="Email"  required >
+                              <input type="email" class="form-control"  placeholder="Email"  required 
+                              name="email">
                           </div>
                           <div class="col">
                             <label for="password" class="form-label">Password :</label>
-                            <input type="text" class="form-control"  required placeholder="Password" >
+                            <input type="password" class="form-control"  required placeholder="Password" 
+                            name="password">
                         </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col">
-                            <label for="contact" class="form-label">Mobile Number :</label>
-                            <input type="text" class="form-control"  placeholder="Mobile Number" required >
-                        </div>
-                           <div class="col">
-                              <!-- <label for="health" class="form-label">Health Condition :</label> -->
-                              <!-- <input type="text" class="form-control"  placeholder="Health Condition" required > -->
-                          </div>
                       </div>
                       <!-- <button type="submit" class="btn btn-outline-dark">Create Account</button> -->
-                      <a href="#" id="btn" class="button btn btn-outline-dark">Create Account</a>
+                      <input type="submit" id="btn" class="button btn btn-outline-dark" 
+                      value="Create Account">
                   </form>
               </div>        
             </div>
