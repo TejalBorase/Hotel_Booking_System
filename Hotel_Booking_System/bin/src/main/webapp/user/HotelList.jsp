@@ -85,37 +85,14 @@ h1, th, td {
 		</ul>
 	</nav>
 	<!-- Hotel Booking by user -->
-	<%
-	AdminDao dao = new AdminDaoImpl();
-	List<Hotel> hotels = dao.getAllHotelsDetails();
-	if (hotels != null) {
-	%>
-	<nav class="navbar navbar-dark justify-content-center">
-		<form class="form-inline" action=" ">
-			<div class="row mb-3">
-				<div class="col">
-					<h1 class="navbar-brand">HOTEL LIST</h1>
-				</div>
-				<div class="col">
-					<input class="form-control " type="search" placeholder="Search"
-						aria-label="Search" name="keyword">
-				</div>
-				<div class="col">
-					<button class="btn btn-outline-success " type="submit">Search</button>
-				</div>
-			</div>
-		</form>
-	</nav>
-	<%
-		String keyword = request.getParameter("keyword");
-		if(keyword != null){
-		hotels = dao.getHotelByKeyword(keyword);
-		}
-	%>
+	<% 
+			AdminDao dao = new AdminDaoImpl();
+			List<Hotel> hotels = dao.getAllHotelsDetails();
+			if(hotels != null){  
+    %>
 	<div class="container">
-
-
-		<table class="table">
+		<h1>Hotel List</h1>
+		<table class="table ">
 			<thead>
 				<tr>
 					<!-- <th scope="col">Id</th> -->
@@ -129,32 +106,30 @@ h1, th, td {
 			</thead>
 			<tbody>
 				<%
-				for (Hotel hotel : hotels) {
-				%>
-				<tr>
-					<td><%=hotel.getHotelName()%></td>
-					<td><%=hotel.getMobile()%></td>
-					<td><%=hotel.getPrice()%></td>
-					<td><%=hotel.getCity()%></td>
-					<td><%=hotel.getAddress()%></td>
-					<td><a
-						href="/Hotel_Booking_System/user/BookHotel.jsp?hotelId=<%=hotel.getId()%>"
-						id="btn" class="button btn btn-outline-dark">Book</a></td>
+                	for(Hotel hotel : hotels){
+                %>
+                  <tr>
+                    <td><%= hotel.getHotelName()%></td>
+                    <td><%= hotel.getMobile()%></td>
+                    <td><%= hotel.getPrice()%></td>
+                    <td><%= hotel.getCity()%></td>
+                    <td><%= hotel.getAddress()%></td>
+					<td><a href="/Hotel_Booking_System/user/BookHotel.jsp?hotelId=<%= hotel.getId()%>" id="btn"
+						class="button btn btn-outline-dark">Book</a></td>
 				</tr>
 				<%
-				}
+                	}
 				%>
 			</tbody>
 		</table>
 	</div>
-	<%
-	} else {
-	%>
-	<center>
-		<h2 style='color: red'>NO RECORD FOUND.</h2>
-	</center>
-	<%
-	}
-	%>
+	 <%
+    	}
+    	else{
+    %>
+    	<center><h2 style='color:red'>NO RECORD FOUND.</h2></center>
+    <%
+    	}
+    %>
 </body>
 </html>

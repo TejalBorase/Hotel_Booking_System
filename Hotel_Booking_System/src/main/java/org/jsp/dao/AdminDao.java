@@ -18,6 +18,8 @@ public interface AdminDao {
 	Hotel updateHotelDetails(Hotel hotel);
 	
 	Hotel getHotelById(int id);
+	
+	List<Hotel> getHotelByKeyword(String keyword);
 }
 
 

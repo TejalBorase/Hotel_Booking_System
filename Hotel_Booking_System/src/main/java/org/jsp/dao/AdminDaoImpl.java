@@ -87,6 +87,17 @@ public class AdminDaoImpl implements AdminDao {
 		return null;
 	}
 
+	public List<Hotel> getHotelByKeyword(String keyword) {
+		String jpql = "SELECT h FROM Hotel h WHERE CONCAT(h.id,' ', h.hotelName,' ', h.city, ' ', h.address) LIKE CONCAT('%', ?1, '%') ";
+				
+		
+		Query query = manager.createQuery(jpql);
+		query.setParameter(1, keyword);
+		List<Hotel> hotels = query.getResultList();
+		
+		return hotels;
+	}
+
 }
 
 

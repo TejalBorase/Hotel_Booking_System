@@ -66,13 +66,13 @@ public class BookingDetails {
 		this.bookingId = bookingId;
 	}
 
-	public LocalDateTime getBookingDateTime() {
-		return bookingDateTime;
-	}
-
-	public void setBookingDateTime(LocalDateTime bookingDateTime) {
-		this.bookingDateTime = bookingDateTime;
-	}
+//	public LocalDateTime getBookingDateTime() {
+//		return bookingDateTime;
+//	}
+//
+//	public void setBookingDateTime(LocalDateTime bookingDateTime) {
+//		this.bookingDateTime = bookingDateTime;
+//	}
 
 	public int getNoOfDays() {
 		return noOfDays;
