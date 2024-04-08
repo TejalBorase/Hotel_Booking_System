@@ -1,7 +1,9 @@
-<!DOCTYPE html>
-<%@page import="org.jsp.entity.BookingDetails"%>
+<%@page import="org.jsp.entity.Card"%>
 <%@page import="java.util.List"%>
 <%@page import="org.jsp.entity.Customer"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -35,7 +37,11 @@ a {
 	color: white; /* Set the text color to white */
 }
 
-#btn, th, td, h1 {
+#btn {
+	color: white;
+}
+
+h1, th, td {
 	color: white;
 }
 </style>
@@ -64,14 +70,13 @@ a {
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item active"><a class="nav-link "
-					href="/Hotel_Booking_System/user/Home.jsp">Home</a></li>
+					href="Home2.html">Home</a></li>
 				<li class="nav-item"><a class="nav-link "
-					href="/Hotel_Booking_System/user/HotelList.jsp">Hotels</a></li>
+					href="HotelList1.html">Hotels</a></li>
 				<li class="nav-item"><a class="nav-link "
-					href="/Hotel_Booking_System/user/BookingHistory.jsp">Booking
-						History</a></li>
-				<li class="nav-item"><a class="nav-link "
-					href="/Hotel_Booking_System/user/Payment.jsp">Payment</a></li>
+					href="BookingHistory.html">Booking History</a></li>
+				<li class="nav-item"><a class="nav-link " href="Payment.html">Payment</a>
+				</li>
 			</ul>
 		</div>
 		<ul class="navbar-nav ml-auto">
@@ -79,43 +84,41 @@ a {
 			<li class="nav-item"><a class="nav-link" href="#">LogOut</a></li>
 		</ul>
 	</nav>
-	<!-- Booking History -->
+	<!-- Hotel Booking by user -->
 	<%
 	Customer customer = (Customer) session.getAttribute("customerObj");
 	if (customer != null) {
-		List<BookingDetails> details = customer.getBookingDetails();
-		if (details != null) {
-	%>
+		List<Card> cards = customer.getCards();
 
+		if (cards != null) {
+	%>
 	<div class="container">
-		<h1>Booking History</h1>
+		<h1>Cards List</h1>
 		<form action="">
 			<table class="table ">
 				<thead>
 					<tr>
-						<th scope="col">Booking Date</th>
-						<th scope="col">Hotel Name</th>
-						<th scope="col">CheckIn Date</th>
-						<th scope="col">CheckOut Date</th>
-						<th scope="col">No of Days</th>
-						<th scope="col">No of Persons</th>
-						<th scope="col">No of Rooms</th>
-						<th scope="col">Price</th>
+						<!-- <th scope="col">Id</th> -->
+						<th scope="col">Card Number</th>
+						<th scope="col">Card Name</th>
+						<th scope="col">Expire</th>
+						<th scope="col">Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<%
-					for (BookingDetails detail : details) {
+					for (Card card : cards) {
 					%>
 					<tr>
-						<th scope="col"><%=detail.getBookingDateTime()%></th>
-						<th scope="col"><%=detail.getHotel().getHotelName()%></th>
-						<th scope="col"><%=detail.getStartDate()%></th>
-						<th scope="col"><%=detail.getEndDate()%></th>
-						<th scope="col"><%=detail.getNoOfDays()%></th>
-						<th scope="col"><%=detail.getNoOfPersons()%></th>
-						<th scope="col"><%=detail.getNoOfRooms()%></th>
-						<th scope="col"><%=detail.getTotalPrice()%></th>
+						<!-- <th scope="row">1</th> -->
+						<td><%=card.getCardNumber()%></td>
+						<td><%=card.getCardHolderName()%></td>
+						<td><%=card.getExpiryDate()%></td>
+						<td><a
+							href="/Hotel_Booking_System/payment?cardId=<%=card.getCardId()%>"
+							id="btn" class="button btn btn-outline-dark">PAY</a> 
+							<a><button
+									class="button btn btn-outline-dark">REMOVE</button> </a></td>
 					</tr>
 					<%
 					}
@@ -125,29 +128,21 @@ a {
 		</form>
 	</div>
 	<%
-		} //close list if block
-		else {
+	} else {
 	%>
 	<center>
 		<h1>NO RECORDS FOUND</h1>
 	</center>
 	<%
-		}
-	} //close first if block
-	else {
+	}
+	} else {
 	%>
 	<center>
 		<h1>NO RECORDS FOUND</h1>
 	</center>
-
 	<%
 	}
 	%>
+
 </body>
 </html>
-
-
-
-
-
-

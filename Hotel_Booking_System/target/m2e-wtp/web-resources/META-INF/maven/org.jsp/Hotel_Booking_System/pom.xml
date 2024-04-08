@@ -38,8 +38,6 @@
 			<artifactId>hibernate-ehcache</artifactId>
 			<version>5.6.15.Final</version>
 		</dependency>
-
-
 	</dependencies>
 	<build>
 		<finalName>Hotel_Booking_System</finalName>

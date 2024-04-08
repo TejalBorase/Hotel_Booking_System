@@ -6,6 +6,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import org.jsp.entity.BookingDetails;
+import org.jsp.entity.Card;
 import org.jsp.entity.Customer;
 
 public class CustomerDaoImpl implements CustomerDao{
@@ -34,6 +36,43 @@ public class CustomerDaoImpl implements CustomerDao{
 		catch (Exception e) {
 			return null;
 		}
+	}
+
+	public void registerBookingDetails(BookingDetails details) {
+		transaction = manager.getTransaction();
+		transaction.begin();
+		manager.persist(details);
+		transaction.commit();
+	}
+
+	public boolean addCard(Card card) {
+		transaction = manager.getTransaction();
+		transaction.begin();
+		if(card != null) {
+			manager.persist(card);
+			transaction.commit();
+			return true;
+		}
+		return false;
+	}
+
+	public BookingDetails updateStatus(BookingDetails details) {
+		transaction = manager.getTransaction();
+		transaction.begin();
+		if(details != null) {
+			BookingDetails update = manager.merge(details);	
+			transaction.commit();
+			return update;
+		}
+		return null;
+	}
+
+	public Card getCardById(int cardId) {
+		Card card = manager.find(Card.class, cardId);
+		if(card != null) {
+			return card;
+		}
+		return null;
 	}
 
 }

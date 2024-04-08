@@ -12,7 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -50,13 +52,17 @@ public class BookingDetails {
 	@Column(name = "end_date")
 	private LocalDate endDate;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	@JoinColumn(name = "hotel_id")
 	private Hotel hotel;
+	
+	@ManyToOne
+	@JoinColumn(name = "card_id")
+	private Card card;
 
 	public int getBookingId() {
 		return bookingId;
@@ -66,13 +72,13 @@ public class BookingDetails {
 		this.bookingId = bookingId;
 	}
 
-//	public LocalDateTime getBookingDateTime() {
-//		return bookingDateTime;
-//	}
-//
-//	public void setBookingDateTime(LocalDateTime bookingDateTime) {
-//		this.bookingDateTime = bookingDateTime;
-//	}
+	public LocalDateTime getBookingDateTime() {
+		return bookingDateTime;
+	}
+
+	public void setBookingDateTime(LocalDateTime bookingDateTime) {
+		this.bookingDateTime = bookingDateTime;
+	}
 
 	public int getNoOfDays() {
 		return noOfDays;
@@ -104,6 +110,16 @@ public class BookingDetails {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	
+
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
 	}
 
 	public LocalDate getStartDate() {

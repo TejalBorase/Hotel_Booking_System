@@ -3,6 +3,7 @@ package org.jsp.entity;
 import java.util.List;
 
 import javax.persistence.Cacheable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,6 +41,9 @@ public class Customer {
 
 	@OneToMany(mappedBy = "customer")
 	private List<BookingDetails> bookingDetails;
+
+	@OneToMany(mappedBy = "customer")
+	private List<Card> cards;
 
 	public void setBookingDetails(List<BookingDetails> bookingDetails) {
 		this.bookingDetails = bookingDetails;
@@ -100,4 +104,17 @@ public class Customer {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+
+	public List<Card> getCards() {
+		return cards;
+	}
+
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
+	}
+
+	public List<BookingDetails> getBookingDetails() {
+		return bookingDetails;
+	}
+
 }

@@ -17,26 +17,24 @@ public class Main {
 	public static void main(String[] args) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("hotel_booking_system");
 		EntityManager manager = factory.createEntityManager();
-		EntityTransaction transaction = manager.getTransaction();
+//		EntityTransaction transaction = manager.getTransaction();
+		/*
+		 * Admin admin = new Admin(); admin.setFirstName("Ramesh");
+		 * admin.setLastName("Patil"); admin.setEmail("ramesh22@gmail.com");
+		 * admin.setMobile(9989889988l); admin.setPassword("ramesh#123");
+		 */
 		
-//		Admin admin = new Admin();
-//		admin.setFirstName("Ramesh");
-//		admin.setLastName("Patil");
-//		admin.setEmail("ramesh21@gmail.com");
-//		admin.setMobile(9989889989l);
-//		admin.setPassword("ramesh#123");
-//		
 //		Customer customer = new Customer();
 //		customer.setFirstName("Sam");
 //		customer.setLastName("Johnson");
 //		customer.setGender("Male");
-//		customer.setEmail("sam45@gmail.com");
-//		customer.setMobile(8989898989l);
+//		customer.setEmail("sam48@gmail.com");
+//		customer.setMobile(8989898987l);
 //		customer.setPassword("1234");
 //		
 //		Hotel hotel = new Hotel();
 //		hotel.setHotelName("ITC");
-//		hotel.setMobile(2345678900l);
+//		hotel.setMobile(2345678908l);
 //		hotel.setCity("Pune");
 //		hotel.setAddress("Hadapsar");
 //		hotel.setPrice(3000);
@@ -56,7 +54,7 @@ public class Main {
 //		
 //		transaction.begin();
 //		
-//		manager.persist(admin);
+////		manager.persist(admin);
 //		manager.persist(details);
 //		
 //		transaction.commit();

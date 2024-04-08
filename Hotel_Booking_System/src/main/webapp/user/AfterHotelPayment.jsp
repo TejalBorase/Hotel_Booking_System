@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="org.jsp.entity.BookingDetails"%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +9,7 @@
       body{
         margin: 0;
         padding: 0;
-        background-image: url("/Owall-Hotel-Seoul-Exterior.jpeg");
+        background-image: url("/Hotel_Booking_System/images/Owall-Hotel-Seoul-Exterior.jpeg");
         background-repeat:no-repeat;
         background-position: inherit;
         /* background-size: cover; */
@@ -47,23 +48,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link " href="Home2.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="HotelList1.html">Hotels</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="BookingHistory.html">Booking History</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="Payment.html">Payment</a>
-                  </li>
+                <li class="nav-item active"><a class="nav-link "
+					href="/Hotel_Booking_System/user/Home.jsp">Home</a></li>
+				<li class="nav-item"><a class="nav-link "
+					href="/Hotel_Booking_System/user/HotelList.jsp">Hotels</a></li>
+				<li class="nav-item"><a class="nav-link "
+					href="/Hotel_Booking_System/user/BookingHistory.jsp">Booking
+						History</a></li>
+				<li class="nav-item"><a class="nav-link "
+					href="/Hotel_Booking_System/user/Payment.jsp">Payment</a></li>
               </ul>
             </div>
-            <ul class="navbar-nav ml-auto">  Add ml-auto class to push "Contact" to the right 
+            <ul class="navbar-nav ml-auto">  <!--  Add ml-auto class to push "Contact" to the right -->
                 <li class="nav-item">
-                  <a class="nav-link" href="#">LogOut</a>
+                  <a class="nav-link" href="../logout">LogOut</a>
                 </li>
               </ul>
         </nav>
@@ -72,30 +70,47 @@
 <div class="container  w-50 p-3 m-5">
     <div class="row justify-content-left">
       <div class="col-md-8">
-          <h1 class="mb-4 " >User Registraion Form</h1>
-          <form action="donate"  method="post">
+          <h1 class="mb-4 " >ADD CARD DETAILS</h1>
+          <form action="../payment"  method="post">
               <div class="row mb-3">
                   <div class="col">
                       <label for="cardnumber" class="form-label">Card Number :</label>
-                      <input type="number" class="form-control"  placeholder="Card Number" required >
+                      <input type="number" class="form-control"  placeholder="Card Number" required 
+                      name="cardnumber">
                   </div>
                   <div class="col">
-                      <label for="cardname" class="form-label">Card Name:</label>
-                      <input type="text" class="form-control" placeholder="Card Name "  required >
+                      <label for="cardname" class="form-label">Card Holder Name:</label>
+                      <input type="text" class="form-control" placeholder="Card Name "  required 
+                      name="cardHolderName">
                   </div>
               </div>
               <div class="row mb-3">
                     <div class="col">
                         <label for="expiredate" class="form-label">Expire Date :</label>
-                        <input type="date" class="form-control"  placeholder="Expire Date"  required >
+                        <input type="date" class="form-control"  placeholder="Expire Date"  required 
+                        name="expiryDate">
                     </div>
+                    <%
+                    	BookingDetails details = (BookingDetails)session.getAttribute("bookingDetails");
+                    %>
                     <div class="col">
-                        <label for="contact" class="form-label">Total Price :</label>
-                        <input type="number" class="form-control"  placeholder="Total Price" required >
+                        <label for="price" class="form-label">Total Price :</label>
+                        <input type="number" class="form-control"  placeholder="Total Price" required 
+                        readonly="readonly" value="<%= details.getTotalPrice()%>">
                     </div>	
               </div>
-                     <!-- <button type="submit" class="btn btn-outline-dark">Create Account</button> -->
-              <a href="AfterHotelPayment.html" id="btn" class="button btn btn-outline-dark">Pay Amount</a>
+              <div class="row mb-3">
+                    <div class="col">
+                        <label for="cvv" class="form-label">CVV :</label>
+                        <input type="number" class="form-control"  placeholder="CVV"  required 
+                        name="cvv">
+                    </div>
+                    <div class="col">
+          
+                    </div>	
+              </div>
+              <button type="submit" class="btn btn-outline-dark">Create Account</button> -->
+              
           </form>
       </div>        
     </div>
